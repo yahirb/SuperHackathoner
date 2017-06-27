@@ -1,10 +1,10 @@
-from lxml import html
+from bs4 import BeautifulSoup
 import requests
 
-page = requests.get('https://mlh.io/seasons/na-2017/events')
-tree = html.fromstring(page.content)
+url = 'https://mlh.io/seasons/na-2017/events'
+result = requests.get(url)
+c = result.content
 
-#This will create a list of hackathons:
-hackathons = tree.xpath('//h3[@itemprop="name"]/text()')
-
-print ('Buyers: %s,' % hackathons)
+soup = BeautifulSoup(c, 'html.parser')
+hackathon_divs = soup.find_all("div", {"class": "event-wrapper"})
+print (hackathon_divs[0])
