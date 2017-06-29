@@ -1,18 +1,21 @@
 from bs4 import BeautifulSoup
 import requests
 
+# returns current list of hackathons.
 def hackathonList():
 
     url = 'https://mlh.io/seasons/na-2017/events'
     result = requests.get(url)
     c = result.content
-
+    #
     soup = BeautifulSoup(c, 'html.parser')
     hackathon_divs = soup.find_all("div", {"class": "event-wrapper"})
 
+
+
+    # Create hackathon dictionaries and add to list.
     hackathon_object_list = []
     data = {}
-
     for div in hackathon_divs:
 
         soup = BeautifulSoup(str(div), 'html.parser')

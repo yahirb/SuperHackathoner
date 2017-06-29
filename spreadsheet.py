@@ -11,12 +11,17 @@ worksheet = workbook.add_worksheet()
 row = 1
 col = 0
 # Create column titles
-worksheet.write(row, col,     "Hackathon")
-worksheet.write(row, col + 1, "URL")
-worksheet.write(row, col + 2, "Start Date")
-worksheet.write(row, col + 3, "End Date")
-worksheet.write(row, col + 4, "City")
-worksheet.write(row, col + 5, "State")
+worksheet.write(0, col,     "Hackathon")
+worksheet.write(0, col + 1, "URL")
+worksheet.write(0, col + 2, "Start Date")
+worksheet.write(0, col + 3, "End Date")
+worksheet.write(0, col + 4, "City")
+worksheet.write(0, col + 5, "State")
+worksheet.write(0, col + 6, "Reimbursement")
+worksheet.write(0, col + 7, "Application Opens")
+worksheet.write(0, col + 8, "Application Closes")
+worksheet.write(0, col + 9, "Applied?")
+
 
 # Iterate over the data and write it out row by row.
 for hackathon in hackathons:
