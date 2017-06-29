@@ -31,7 +31,8 @@ def hackathonList():
         hackathon_object['startDate'] = hackathon_startdate_element['content']
         hackathon_object['endDate'] = hackathon_enddate_element['content']
         hackathon_object['city'] = hackathon_city_element.text
-        hackathon_object['state'] = hackathon_state_element.text
+        # replace() removes white space that may be present.
+        hackathon_object['state'] = hackathon_state_element.text.replace(" ", "")
 
         hackathon_object_list.append(hackathon_object)
     return hackathon_object_list
