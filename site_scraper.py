@@ -25,6 +25,7 @@ def hackathonList():
         hackathon_city_element = soup.find("span", {"itemprop": "addressLocality"})
         hackathon_state_element = soup.find("span", {"itemprop": "addressRegion"})
 
+
         hackathon_object = {}
         hackathon_object['title'] = hackathon_a_element['title']
         hackathon_object['url'] = hackathon_a_element['href']
@@ -33,6 +34,13 @@ def hackathonList():
         hackathon_object['city'] = hackathon_city_element.text
         # replace() removes white space that may be present.
         hackathon_object['state'] = hackathon_state_element.text.replace(" ", "")
+
+        # High School Tag
+        if soup.find("div", {"class": "ribbon yellow"}):
+            hackathon_highschool_element = soup.find("div", {"class": "ribbon yellow"})
+            hackathon_object['highSchoolBoolean'] = hackathon_highschool_element.text
+        else:
+            hackathon_object['highSchoolBoolean'] = ' '
 
         hackathon_object_list.append(hackathon_object)
     return hackathon_object_list

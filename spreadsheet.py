@@ -115,8 +115,7 @@ def hackathonSpreadsheet():
     worksheet.write(0, col + 9, "Application Closes")
     worksheet.write(0, col + 10, "Applied?")
     worksheet.write(0, col + 11, "Abroad?")
-
-
+    worksheet.write(0, col + 12, "High School?")
 
 
 
@@ -129,6 +128,7 @@ def hackathonSpreadsheet():
         worksheet.write(row, col + 4, hackathon['city'])
         worksheet.write(row, col + 5, hackathon['state'])
         worksheet.write(row, col + 6, country(hackathon['state']))
+        worksheet.write(row, col + 12, hackathon['highSchoolBoolean'])
         row += 1
 
     workbook.close()
